@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "source": {"delimiter": ",", "encoding": "utf-8-sig"},
+  "target": {"delimiter": ";", "encoding": "utf-8-sig"},
+  "key": {"source": "order_id", "target": "pedido", "strip": true, "casefold": false},
+  "fields": [
+    {
+      "name": "amount",
+      "source": "amount",
+      "target": "valor",
+      "type": "decimal",
+      "required": true,
+      "source_format": {"decimal": ".", "thousands": ""},
+      "target_format": {"decimal": ",", "thousands": "."}
+    },
+    {
+      "name": "status",
+      "source": "status",
+      "target": "situacao",
+      "type": "text",
+      "category": "status",
+      "casefold": true,
+      "collapse_whitespace": true,
+      "required": true,
+      "aliases": {"paid": "paid", "pago": "paid", "pending": "pending", "pendente": "pending"}
+    },
+    {
+      "name": "date",
+      "source": "created_at",
+      "target": "data",
+      "type": "date",
+      "required": true,
+      "source_format": "%Y-%m-%d",
+      "target_format": "%d/%m/%Y"
+    }
+  ]
+}

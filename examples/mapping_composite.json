@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "source": {
+    "delimiter": ",",
+    "encoding": "utf-8-sig"
+  },
+  "target": {
+    "delimiter": ";",
+    "encoding": "utf-8-sig"
+  },
+  "key": {
+    "parts": [
+      {
+        "source": "region",
+        "target": "regiao"
+      },
+      {
+        "source": "order_id",
+        "target": "pedido"
+      }
+    ],
+    "strip": true
+  },
+  "fields": [
+    {
+      "name": "amount",
+      "source": "amount",
+      "target": "valor",
+      "type": "decimal",
+      "absolute_tolerance": "0.01",
+      "source_format": {
+        "decimal": ".",
+        "thousands": ""
+      },
+      "target_format": {
+        "decimal": ",",
+        "thousands": "."
+      }
+    },
+    {
+      "name": "status",
+      "source": "status",
+      "target": "situacao",
+      "type": "text",
+      "category": "status",
+      "casefold": true,
+      "aliases": {
+        "pago": "paid",
+        "pendente": "pending"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+region,order_id,amount,status
+BR,001,100.00,paid
+US,001,200.00,pending
+BR,002,55.10,paid

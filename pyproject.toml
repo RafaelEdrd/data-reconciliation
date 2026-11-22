@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "data-reconciliation-ra"
+version = "1.1.0rc1"
+description = "Deterministic CSV reconciliation with explicit data-quality controls"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+keywords = ["data-quality", "reconciliation", "csv", "audit"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<10", "ruff>=0.13,<1.0"]
+
+[project.scripts]
+reconcile = "reconciliation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["reconciliation*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "B"]

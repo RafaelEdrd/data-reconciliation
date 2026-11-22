@@ -1,0 +1,4 @@
+regiao;pedido;valor;situacao
+BR;001;100,01;pago
+US;001;200,00;pendente
+BR;002;55,17;pago
